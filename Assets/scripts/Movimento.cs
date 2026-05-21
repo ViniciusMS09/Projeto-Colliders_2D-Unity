@@ -46,7 +46,7 @@ public class script : MonoBehaviour
 
             theScale.x *= -1;
             transform.localScale = theScale;
-            Debug.Log("o personagem virou");
+            //Debug.Log("o personagem virou");
         }
     }
     void OnCollisionEnter2D(Collision2D colisao)
@@ -59,10 +59,28 @@ public class script : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D colisao)
     {
-        Debug.Log("Saiu da colisão com o objeto");
+        //Debug.Log("Saiu da colisão com o objeto");
     }
     private void OnCollisionStay2D(Collision2D colisao)
     {
-        Debug.Log("Player continua colidindo com objeto");
+        //Debug.Log("Player continua colidindo com objeto");
+    }
+    void OnTriggerEnter2D(Collider2D colisao)
+    {
+        if (colisao.gameObject.tag == "objetos")
+        {
+            Destroy(colisao.gameObject);
+        }
+
+        
+        //Debug.Log("Colidiu com objeto TRIGGER");
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        //Debug.Log("Deixou de colidir com objeto TRIGGER");
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //Debug.Log("Continua colidindo com objeto TRIGGER");
     }
 }
